@@ -23,7 +23,7 @@ export const AddFilm = () => {
         });
         if (e.target.type === "file") {
             let url = URL.createObjectURL(e.target.files[0]);
-            console.log("ini data blob", url);
+            // console.log("ini data blob", url);
             setPreview(url);
         }
     };
@@ -41,13 +41,13 @@ export const AddFilm = () => {
             const response = await API.post("/addfilm", formData);
             alert("Sukses menambahkan film");
 
-            console.log("berhasil menambahkan product", response);
+            // console.log("berhasil menambahkan film", response);
             if (response) {
                 navigate("/");
             }
         } catch (err) {
             alert(err);
-            console.log("gagal upload product", err);
+            // console.log("gagal upload film", err);
         }
     });
     return (

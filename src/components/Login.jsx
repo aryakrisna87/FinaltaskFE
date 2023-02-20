@@ -44,17 +44,17 @@ export const Login = () => {
             localStorage.setItem("Email", responseLogin.data.data.email);
             setUsers(responseLogin.data.data.email);
             console.log("ini email", responseLogin.data.data.email);
-            alert("Log-In Sukses");
+            alert("Login Succsess");
             localStorage.setItem("token", responseLogin.data.data.token);
             navigate(0);
         } catch (error) {
-            alert("either password or email is incorrect");
+            alert("password or email is incorrect");
 
             console.log(error);
         }
     });
     return (
-        <div className="grid grid-cols-2 gap-5  content-center">
+        <div className="grid grid-cols-2 gap-2  content-center">
             <React.Fragment>
                 <button
                     onClick={() => setLogin(true)}
