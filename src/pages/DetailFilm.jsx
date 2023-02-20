@@ -34,28 +34,19 @@ export const DetailFilm = () => {
                 response.data.data.token
             );
 
-            console.log("ini tokennnnn", response);
-            console.log("ini tokennnnnbaru", tokenBaru);
-
             window.snap.pay(tokenBaru, {
                 onSuccess: function (result) {
-                    console.log(result);
                     navigate("/profile");
                 },
                 onPending: function (result) {
-                    console.log(result);
                     navigate("/profile");
                 },
-                onError: function (result) {
-                    console.log(result);
-                },
+                onError: function (result) {},
                 onClose: function () {
                     alert("you closed the popup without finishing the payment");
                 },
             });
-        } catch (error) {
-            console.log(error);
-        }
+        } catch (error) {}
     });
     useEffect(() => {
         const midtransScriptUrl =
@@ -152,27 +143,8 @@ export const DetailFilm = () => {
                                         </span>
                                     </p>
                                 </div>
-                                <TextInput
-                                    id="account"
-                                    placeholder="Input Your Account Number"
-                                    // name="acc_number"
-                                    disabled
-                                    required={true}
-                                />
                             </div>
-                            <div className="flex gap-1">
-                                <button className="bg-btnPink  text-[1.1rem] gap-2 flex justify-center w-[12rem] font-semibold h-[2.2rem] rounded-md ">
-                                    Attach Payment
-                                    <img
-                                        src={Sheet}
-                                        className="w-[1.7rem]"
-                                        alt="sheet"
-                                    />
-                                </button>
-                                <p className="text-[10px] text-payText font-semibold">
-                                    *transfer can be made to holyways account
-                                </p>
-                            </div>{" "}
+
                             <button
                                 onClick={() => handleTransaction.mutate()}
                                 className="bg-btnPink w-full rounded-md p-[.3rem]"
